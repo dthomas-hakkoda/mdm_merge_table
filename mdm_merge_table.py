@@ -83,7 +83,7 @@ csvLoc = args.csv_loc
 def csv_to_dict (csv_location):
 
     try:
-        list_of_dict =[*csv.DictReader(open(csv_location))]
+        list_of_dict =[*csv.DictReader(open(csv_location, encoding='utf-8-sig'))]
 
         return (list_of_dict)
     
@@ -110,7 +110,7 @@ def csv_to_dict (csv_location):
 def columns_check(list_of_dict):
 
     list_keys= list(list_of_dict[0].keys())
-    
+
     expected_keys = ['Source Table/View', 'Target Column', 'Data Target Type', 'Source Column(s)', 'Source Datatype'] 
         
     check = all(item in list_keys for item in expected_keys)
